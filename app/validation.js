@@ -15,6 +15,8 @@ function  validateShotValue(shot) {
     document.body.innerHTML = `
       <h2>Você acertou!</h2>
       <h3>O número secreto era ${secretNumber}</h3>
+
+      <button id="jogar-novamente" class="btn-jogar">Jogar novamente</button>
     `
   } else if (number > secretNumber) {
     shotElement.innerHTML += `
@@ -34,3 +36,9 @@ function isShotLargerOrLowerThanValue(number) {
 function isInvalidShot(number) {
   return Number.isNaN(number)
 }
+
+document.body.addEventListener('click', e => {
+  if(e.target.id == 'jogar-novamente') {
+    window.location.reload()
+  }
+})
