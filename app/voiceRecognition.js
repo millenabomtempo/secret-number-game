@@ -11,8 +11,10 @@ recognition.addEventListener('result', onSpeak)
 
 function onSpeak(e) {
   const shot = e.results[0][0].transcript
-
+  
   showShot(shot)
+
+  validateShotValue(shot)
 
 }
 
@@ -22,3 +24,5 @@ function showShot(shot) {
     <span class="box">${shot}</span>
   `
 }
+
+recognition.addEventListener('end', () => recognition.start())
